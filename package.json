@@ -10,6 +10,7 @@
     "run": "ts-node ./src/index.ts",
     "prepublish": "npm run build",
     "build": "tsc -p ./ --outDir dist/",
+    "document": "typedoc --out './docs/api' './src/types'"
   },
   "repository": {
     "type": "git",
