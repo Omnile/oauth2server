@@ -24,12 +24,12 @@ Straight forward Summary about this package.
 
 ## Installing this package
 
-To install OVAC\HubtelPayment library, simply run
+To install  library, simply run
 ```
 $ npm install oauth2server
 ```
 
-## OVAC\Hubtel-Payment Basic Usage
+## Basic Usage
 
 Simple description on how to use this package
 
