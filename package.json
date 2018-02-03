@@ -1,0 +1,42 @@
+{
+  "name": "oauth2server",
+  "version": "0.0.1",
+  "description": "An OAuth 2 implementation from the Omnile Team.",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "test": "mocha --compilers ts:ts-node/register 'test/**.spec.ts'",
+    "watch-test": "mocha -w --compilers ts:ts-node/register 'test/*.spec.ts'",
+    "run": "ts-node ./src/index.ts",
+    "prepublish": "npm run build",
+    "build": "tsc -p ./ --outDir dist/",
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Omnile/oauth2server.git"
+  },
+  "keywords": [
+    "Oauth2Server",
+    "Oauth",
+    "Oauth2",
+    "auth",
+    "JWT"
+  ],
+  "author": [
+    "Ariama Victor (ovac4u) <iamovac@gmail.com>"
+  ],
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Omnile/oauth2server/issues"
+  },
+  "homepage": "https://github.com/Omnile/oauth2server#readme",
+  "devDependencies": {
+    "@types/chai": "^4.0.0",
+    "@types/mocha": "^2.2.41",
+    "chai": "^4.0.2",
+    "mocha": "^3.4.2",
+    "nyc": "^11.4.1",
+    "ts-node": "^3.1.0",
+    "typescript": "^2.7.1"
+  }
+}
