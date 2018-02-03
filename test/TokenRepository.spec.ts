@@ -55,7 +55,7 @@ describe('The TokenRepository find method', () => {
 describe('The TokenRepository findByRefreshToken method', () => {
   it('should return correct and valid string' , () => {
 
-    expect(tokenRepository.find('RefreshToken')).equals('Pass Test');
+    expect(tokenRepository.findByRefreshToken('RefreshToken')).equals('Pass Test');
 
   });
 });

@@ -13,7 +13,9 @@
     "src/types/*"
   ],
   "exclude": [
-    "node_modules",
+    ".couscous/",
+    ".nyc_output/",
+    "node_modules/",
     "dist/",
     "test/"
   ]

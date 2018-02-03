@@ -10,7 +10,31 @@
     "run": "ts-node ./src/index.ts",
     "prepublish": "npm run build",
     "build": "tsc -p ./ --outDir dist/",
-    "document": "typedoc --out './docs/api' './src/types'"
+
+    "document": "npm run typedoc; npm run nyc",
+    "typedoc": "typedoc --out './docs/typedoc' './src/types';",
+    "nyc": "nyc --reporter=html npm test"
+  },
+  "nyc": {
+    "extension": [
+      ".ts",
+      ".tsx"
+    ],
+    "exclude": [
+      ".couscous",
+      ".nyc_output",
+      "**/*.d.ts",
+      "**/*.js",
+      "node_modules",
+      "dist",
+      "test",
+      "coverage"
+    ],
+    "reporter": [
+      "html"
+    ],
+    "report-dir": "./docs/coverage",
+    "all": true
   },
   "repository": {
     "type": "git",

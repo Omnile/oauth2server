@@ -1,3 +1,5 @@
 .idea
+.couscous
+.nyc_output
 node_modules
 dist

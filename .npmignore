@@ -1,3 +1,5 @@
+.nyc_output
+.couscous
 tsconfig.json
 src
-doc
+docs
