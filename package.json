@@ -13,7 +13,9 @@
 
     "document": "npm run typedoc; npm run nyc",
     "typedoc": "typedoc --out './docs/typedoc' './src/types';",
-    "nyc": "nyc --reporter=html npm test"
+    "nyc": "nyc --reporter=html npm test",
+    "couscous": "bin/couscous.sh",
+    "document-and-publish": "bin/document.sh"
   },
   "nyc": {
     "extension": [

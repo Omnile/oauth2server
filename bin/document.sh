@@ -2,19 +2,14 @@
 bin/ci.sh
 
 echo ""
-# get couscous if it does not exist.
-[ -e couscous.phar ] && echo "Couscous found\r\n" || curl -O http://couscous.io/couscous.phar | php;
-
 echo "Generating Documentation\r\n";
 
-# Run the nodedoc generator
-npm run document;
 
-# Run the nyc test coverage generator
+# Run the nodedoc and coverage generator
 npm run document;
 
 # Run the couscous static site generator
-php couscous.phar generate --target=./docs/couscous;
+npm run couscous
 
 # clone the project and climb into the directory and switch to the gh-pages branch
 git clone https://www.github.com/omnile/oauth2server;
@@ -43,6 +38,6 @@ mv  -v ../docs/nodedoc/* ./api/;
 mv  -v ../docs/coverage/* ./coverage/;
 
 # Add all and commit to github if deploy was enabled
-git add --all . && git add **/.* && git commit -m 'Documentation Updated' && git push origin gh-pages;
+git add --all . && git add **/.* && git commit -m 'Gighub Pages Documentation Updated' && git push origin gh-pages;
 
 rm -rf ./**;
