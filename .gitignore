@@ -1,6 +1,7 @@
 .idea
 .couscous
 .nyc_output
+couscous.phar
 docs/
 node_modules
 dist
