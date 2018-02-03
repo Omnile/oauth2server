@@ -1,6 +1,1 @@
-.idea
-.couscous
-.nyc_output
-docs/
-node_modules
-dist
+/.couscous/
