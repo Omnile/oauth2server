@@ -32,7 +32,7 @@ touch .nojekyll;
 mv  -v ../docs/couscous/* ./;
 
 # copy all files from the nodedoc generated folder into the api folder
-mv  -v ../docs/nodedoc/* ./api/;
+mv  -v ../docs/typedoc/* ./api/;
 
 # copy all files from the coverage generated folder into the coverage folder
 mv  -v ../docs/coverage/* ./coverage/;
