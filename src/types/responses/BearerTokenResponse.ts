@@ -10,7 +10,8 @@ export default class BearerTokenResponse extends AbstractTokenResponse implement
         return {
             access_token: this.accessToken.convertToJwtToken(this.privateKey),
             expires_at: Moment(this.accessToken.getExpirationDateTime()).format(),
-            refresh_token: this.getRefreshToken()
+            refresh_token: this.getRefreshToken(),
+            token_type: 'Bearer'
         }
     }
 
