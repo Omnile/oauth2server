@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>AuthPayloadI | omnile-passport</title>
+	<title>UserIdentifierEntityI | omnile-passport</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_authpayloadi_.html">&quot;AuthPayloadI&quot;</a>
+					<a href="../modules/_entities_useridentifierentityi_.html">&quot;entities/UserIdentifierEntityI&quot;</a>
 				</li>
 				<li>
-					<a href="_authpayloadi_.authpayloadi.html">AuthPayloadI</a>
+					<a href="_entities_useridentifierentityi_.useridentifierentityi.html">UserIdentifierEntityI</a>
 				</li>
 			</ul>
-			<h1>Interface AuthPayloadI</h1>
+			<h1>Interface UserIdentifierEntityI</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,12 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">AuthPayloadI</span>
+						<a href="_entities_userentityi_.userentityi.html" class="tsd-signature-type">UserEntityI</a>
+						<ul class="tsd-hierarchy">
+							<li>
+								<span class="target">UserIdentifierEntityI</span>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</section>
@@ -81,84 +86,63 @@
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section ">
+						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_authpayloadi_.authpayloadi.html#client" class="tsd-kind-icon">client</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_authpayloadi_.authpayloadi.html#grant_type" class="tsd-kind-icon">grant_<wbr>type</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_authpayloadi_.authpayloadi.html#refresh_token" class="tsd-kind-icon">refresh_<wbr>token</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_authpayloadi_.authpayloadi.html#user" class="tsd-kind-icon">user</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_entities_useridentifierentityi_.useridentifierentityi.html#id" class="tsd-kind-icon">id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_entities_useridentifierentityi_.useridentifierentityi.html#password" class="tsd-kind-icon">password</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_entities_useridentifierentityi_.useridentifierentityi.html#type" class="tsd-kind-icon">type</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="_entities_useridentifierentityi_.useridentifierentityi.html#username" class="tsd-kind-icon">username</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="client" class="tsd-anchor"></a>
-					<h3>client</h3>
-					<div class="tsd-signature tsd-kind-icon">client<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ClientEntity</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="id" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> id</h3>
+					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
+						<p>Inherited from <a href="_entities_userentityi_.userentityi.html">UserEntityI</a>.<a href="_entities_userentityi_.userentityi.html#id">id</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Omnile/oauth2server/blob/e539e7c/src/types/AuthPayloadI.ts#L10">AuthPayloadI.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/Omnile/oauth2server/blob/e539e7c/src/types/entities/UserEntityI.ts#L5">entities/UserEntityI.ts:5</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>This will be the client for the auth request</p>
-						</div>
-						<dl class="tsd-comment-tags">
-							<dt>type</dt>
-							<dd><p>{string}</p>
-							</dd>
-						</dl>
-					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="grant_type" class="tsd-anchor"></a>
-					<h3>grant_<wbr>type</h3>
-					<div class="tsd-signature tsd-kind-icon">grant_<wbr>type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="password" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> password</h3>
+					<div class="tsd-signature tsd-kind-icon">password<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
+						<p>Inherited from <a href="_entities_userentityi_.userentityi.html">UserEntityI</a>.<a href="_entities_userentityi_.userentityi.html#password">password</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Omnile/oauth2server/blob/e539e7c/src/types/AuthPayloadI.ts#L15">AuthPayloadI.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/Omnile/oauth2server/blob/e539e7c/src/types/entities/UserEntityI.ts#L4">entities/UserEntityI.ts:4</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The authentication grant type</p>
-						</div>
-					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="refresh_token" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> refresh_<wbr>token</h3>
-					<div class="tsd-signature tsd-kind-icon">refresh_<wbr>token<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="type" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> type</h3>
+					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
+						<p>Inherited from <a href="_entities_userentityi_.userentityi.html">UserEntityI</a>.<a href="_entities_userentityi_.userentityi.html#type">type</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Omnile/oauth2server/blob/e539e7c/src/types/AuthPayloadI.ts#L26">AuthPayloadI.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/Omnile/oauth2server/blob/e539e7c/src/types/entities/UserEntityI.ts#L6">entities/UserEntityI.ts:6</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Refresh token</p>
-						</div>
-					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="user" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> user</h3>
-					<div class="tsd-signature tsd-kind-icon">user<span class="tsd-signature-symbol">:</span> <a href="_entities_userentityi_.userentityi.html" class="tsd-signature-type">UserEntityI</a></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="username" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> username</h3>
+					<div class="tsd-signature tsd-kind-icon">username<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
+						<p>Inherited from <a href="_entities_userentityi_.userentityi.html">UserEntityI</a>.<a href="_entities_userentityi_.userentityi.html#username">username</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/Omnile/oauth2server/blob/e539e7c/src/types/AuthPayloadI.ts#L21">AuthPayloadI.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/Omnile/oauth2server/blob/e539e7c/src/types/entities/UserEntityI.ts#L3">entities/UserEntityI.ts:3</a></li>
 						</ul>
 					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The user who&#39;s making the request</p>
-						</div>
-					</div>
 				</section>
 			</section>
 		</div>
@@ -169,7 +153,7 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module">
-						<a href="../modules/_authpayloadi_.html">"<wbr>Auth<wbr>Payload<wbr>I"</a>
+						<a href="../modules/_entities_useridentifierentityi_.html">"entities/<wbr>User<wbr>Identifier<wbr>Entity<wbr>I"</a>
 					</li>
 				</ul>
 			</nav>
@@ -178,19 +162,19 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
-						<a href="_authpayloadi_.authpayloadi.html" class="tsd-kind-icon">Auth<wbr>PayloadI</a>
+						<a href="_entities_useridentifierentityi_.useridentifierentityi.html" class="tsd-kind-icon">User<wbr>Identifier<wbr>EntityI</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_authpayloadi_.authpayloadi.html#client" class="tsd-kind-icon">client</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="_entities_useridentifierentityi_.useridentifierentityi.html#id" class="tsd-kind-icon">id</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_authpayloadi_.authpayloadi.html#grant_type" class="tsd-kind-icon">grant_<wbr>type</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="_entities_useridentifierentityi_.useridentifierentityi.html#password" class="tsd-kind-icon">password</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_authpayloadi_.authpayloadi.html#refresh_token" class="tsd-kind-icon">refresh_<wbr>token</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="_entities_useridentifierentityi_.useridentifierentityi.html#type" class="tsd-kind-icon">type</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_authpayloadi_.authpayloadi.html#user" class="tsd-kind-icon">user</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="_entities_useridentifierentityi_.useridentifierentityi.html#username" class="tsd-kind-icon">username</a>
 							</li>
 						</ul>
 					</li>
