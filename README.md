@@ -26,7 +26,7 @@ Straight forward Summary about this package.
 
 To install  library, simply run
 ```
-$ npm install oauth2server
+$ npm install omnile-oauth2
 ```
 
 ## Basic Usage
@@ -36,7 +36,7 @@ Simple description on how to use this package
 #### Sample Code 1
 
 ```js
-var oauth2server = require('oauth2server');
+var OAuth2Server = require('omnile-oauth2');
 
 // Some implementation example
 ```
