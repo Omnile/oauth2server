@@ -1,5 +1,5 @@
 {
-  "name": "oauth2server",
+  "name": "omnile-passport",
   "version": "0.0.1",
   "description": "An OAuth 2 implementation from the Omnile Team.",
   "main": "./dist/index.js",
@@ -7,10 +7,9 @@
   "scripts": {
     "test": "mocha --compilers ts:ts-node/register 'test/**.spec.ts'",
     "watch-test": "mocha -w --compilers ts:ts-node/register 'test/*.spec.ts'",
-    "run": "ts-node ./src/index.ts",
+    "run": "ts-node ./src/types/index.ts",
     "prepublish": "npm run build",
     "build": "tsc -p ./ --outDir dist/",
-
     "document": "npm run typedoc; npm run nyc",
     "typedoc": "typedoc --out './docs/typedoc' './src/types';",
     "nyc": "nyc --reporter=html npm test",
@@ -49,8 +48,9 @@
     "auth",
     "JWT"
   ],
-  "author": [
-    "Ariama Victor (ovac4u) <iamovac@gmail.com>"
+  "authors": [
+    "Ariama Victor (ovac4u) <iamovac@gmail.com>",
+    "Bright Antwi Boasiako <bright@omnile.com>"
   ],
   "license": "ISC",
   "bugs": {
@@ -58,12 +58,23 @@
   },
   "homepage": "https://github.com/Omnile/oauth2server#readme",
   "devDependencies": {
+    "@types/bluebird": "^3.5.20",
     "@types/chai": "^4.0.0",
+    "@types/crypto-js": "^3.1.38",
+    "@types/es6-promise": "^3.3.0",
+    "@types/jsonwebtoken": "^7.2.5",
     "@types/mocha": "^2.2.41",
+    "@types/node": "^9.4.0",
     "chai": "^4.0.2",
     "mocha": "^3.4.2",
     "nyc": "^11.4.1",
     "ts-node": "^3.1.0",
     "typescript": "^2.7.1"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "crypto-js": "^3.1.9-1",
+    "jsonwebtoken": "^8.1.1",
+    "moment": "^2.20.1"
   }
 }

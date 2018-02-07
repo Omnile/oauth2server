@@ -1,19 +1,27 @@
-export interface AuthPayloadI {
+
+import ClientEntity from './entities/ClientEntityI'
+import UserEntityI from "./entities/UserEntityI";
+
+export default interface AuthPayloadI {
     /**
-     * This will be the username of the client
+     * This will be the client for the auth request
      * @type {string}
      */
-    username: string;
+    client: ClientEntity
 
     /**
-     * This will be the ID of the client
-     * @type {number|string}
+     * The authentication grant type
      */
-    owner_id: number|string;
+    grant_type: string
+
 
     /**
-     * This will be the type of client
-     * @type {number|string}
+     * The user who's making the request
      */
-    owner_type: number|string;
+    user?: UserEntityI
+
+    /**
+     * Refresh token
+      */
+    refresh_token?: string
 }
