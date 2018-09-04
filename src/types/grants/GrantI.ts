@@ -3,7 +3,6 @@ import ClientRepositoryI from '../repositories/ClientRepositoryI'
 import AccessTokenRequestI from '../requests/AccessTokenRequestI'
 import TokenRepositoryI from "../repositories/TokenRepositoryI";
 import UserRepositoryI from "../repositories/UserRepositoryI";
-import * as Promise from 'bluebird';
 import EncryptorI from "../EncryptorI";
 
 export default interface GrantI {

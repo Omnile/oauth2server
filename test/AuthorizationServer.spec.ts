@@ -4,7 +4,6 @@ import UserEntityI from "../src/types/entities/UserEntityI";
 const expect = require('chai').expect;
 
 import AccessTokenI from "../dist/AccessTokenI";
-import * as Promise from 'bluebird';
 import ClientEntityI from "../src/types/entities/ClientEntityI";
 
 import { AuthorizationServerI, default as OAuthServer } from '../dist';

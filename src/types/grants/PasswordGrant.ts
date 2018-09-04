@@ -2,7 +2,8 @@
 import GrantI from './GrantI'
 import AbstractGrant from './AbstractGrant'
 import AccessTokenRequestI from '../requests/AccessTokenRequestI'
-import * as Promise from 'bluebird'
+import UserEntityI from "../entities/UserEntityI";
+import AccessTokenI from "../AccessTokenI";
 
 export default class PasswordGrant extends AbstractGrant implements GrantI{
 
@@ -15,7 +16,7 @@ export default class PasswordGrant extends AbstractGrant implements GrantI{
      * Responds to password grant access token requests
      * @param {AccessTokenRequestI} request
      * @param {number} accessTokenTTL
-     * @returns {Bluebird<any>}
+     * @returns {Promise<any>}
      */
     respondToAccessTokenRequest(request: AccessTokenRequestI, accessTokenTTL?: number) : Promise<any>{
         let client = request.payload.client;
@@ -25,18 +26,18 @@ export default class PasswordGrant extends AbstractGrant implements GrantI{
             this.validateClient(request.payload.client)
                 .then(() => {
                       this.validateUser(user, this.getIdentifier(), client)
-                          .then((user) => {
+                          .then((user: UserEntityI) => {
                               // Both user and client are verified
                               // We create and persist tokens
                               this.issueAccessToken(
                                   client,
                                   user,
                                   accessTokenTTL
-                              ).then(accessToken => {
+                              ).then((accessToken: AccessTokenI) => {
                                   resolve(accessToken);
-                              }).catch(error => reject(error));
-                          }).catch(error => reject(error))
-                }).catch(error => reject(error))
+                              }).catch((error: Error) => reject(error));
+                          }).catch((error: Error) => reject(error))
+                }).catch((error: Error) => reject(error))
         })
     }
 

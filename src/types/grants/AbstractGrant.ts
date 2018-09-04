@@ -3,7 +3,6 @@ import GrantI from './GrantI'
 import ClientRepositoryI from '../repositories/ClientRepositoryI'
 import TokenRepositoryI from '../repositories/TokenRepositoryI'
 import AccessTokenRequestI from '../requests/AccessTokenRequestI'
-import * as Promise from 'bluebird'
 import ClientEntityI from '../entities/ClientEntityI'
 import UserEntityI from "../entities/UserEntityI";
 import UserRepositoryI from "../repositories/UserRepositoryI";
@@ -63,7 +62,7 @@ export default class AbstractGrant implements GrantI {
      * @param {UserEntityI} user
      * @param {string} grantType
      * @param {ClientEntityI} client
-     * @returns {Bluebird<any>}
+     * @returns {Promise<any>}
      */
     protected validateUser(user: UserEntityI, grantType?: string, client?: ClientEntityI) : Promise<UserEntityI> {
         return new Promise((resolve, reject) => {
@@ -85,7 +84,7 @@ export default class AbstractGrant implements GrantI {
      * @param client
      * @param {UserIdentifierEntityI} userIdentifier
      * @param {number} accessTokenTTL
-     * @returns {Bluebird<any>}
+     * @returns {Promise<any>}
      */
     protected issueAccessToken(
         client: ClientEntityI,

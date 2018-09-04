@@ -2,7 +2,6 @@ import { ResourceServerI } from "./ResourceServerI";
 import AuthenticatedRequestI from "./requests/AuthenticatedRequestI";
 import CryptKey, {CryptKeyI} from "./CryptKey";
 import * as jwt from 'jsonwebtoken';
-import * as Promise from 'bluebird';
 
 export class ResourceServer implements ResourceServerI{
 

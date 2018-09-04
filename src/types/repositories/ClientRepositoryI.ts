@@ -1,5 +1,4 @@
 import ClientEntityI from '../entities/ClientEntityI'
-import * as Promise from 'bluebird'
 
 /**
  * ClientRepositoryI

@@ -1,7 +1,6 @@
 import { AuthorizationServerI } from "./AuthorizationServerI";
 import AuthPayloadI from "./AuthPayloadI";
 import GrantI from "./grants/GrantI";
-import * as Promise from 'bluebird';
 import TokenResponseI from "./responses/TokenResponseI";
 import AccessTokenI from "./AccessTokenI";
 import TokenResponseEntityI from "./responses/TokenResponseEntityI";
@@ -62,7 +61,7 @@ export default class AuthorizationServer implements AuthorizationServerI{
      * Gets an access token for the provided credentials
      *
      * @param {AuthPayloadI} payload
-     * @returns {Bluebird<any>}
+     * @returns {Promise<any>}
      */
     getAccessToken(payload: AuthPayloadI): Promise<any> {
 
@@ -80,11 +79,11 @@ export default class AuthorizationServer implements AuthorizationServerI{
                     isGrantTypeSupported = true;
 
                     this.enabledGrants[grantType].respondToAccessTokenRequest(request)
-                        .then(accessToken => {
+                        .then((accessToken: AccessTokenI) => {
                             // We have an access token
                             resolve(this.makeAccessTokenResponsePayload(accessToken));
                         })
-                        .catch(error => reject(error));
+                        .catch((error: Error) => reject(error));
 
                     // Only one grant type per access token request
                     // Therefore if we already match a grant, we proceed with that

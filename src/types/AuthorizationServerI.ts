@@ -1,7 +1,6 @@
 
 import AuthPayloadI from './AuthPayloadI'
 import GrantI from './grants/GrantI'
-import * as Promise from 'bluebird';
 import UserRepositoryI from "./repositories/UserRepositoryI";
 import TokenRepositoryI from "./repositories/TokenRepositoryI";
 import ClientRepositoryI from "./repositories/ClientRepositoryI";

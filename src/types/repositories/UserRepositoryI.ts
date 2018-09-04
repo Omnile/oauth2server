@@ -1,6 +1,5 @@
 
 import ClientEntityI from "../entities/ClientEntityI";
-import * as Promise from 'bluebird'
 import UserEntityI from "../entities/UserEntityI";
 
 export default interface UserRepositoryI{

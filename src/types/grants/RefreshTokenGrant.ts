@@ -2,7 +2,7 @@
 import GrantI from './GrantI'
 import AbstractGrant from './AbstractGrant'
 import AccessTokenRequestI from '../requests/AccessTokenRequestI'
-import * as Promise from 'bluebird'
+import AccessTokenI from "../AccessTokenI";
 
 export default class RefreshTokenGrant extends AbstractGrant implements GrantI{
 
@@ -15,7 +15,7 @@ export default class RefreshTokenGrant extends AbstractGrant implements GrantI{
      * Responds to a refresh token grant access token requests
      * @param {AccessTokenRequestI} request
      * @param {number} accessTokenTTL
-     * @returns {Bluebird<any>}
+     * @returns {Promise<any>}
      */
     respondToAccessTokenRequest(request: AccessTokenRequestI, accessTokenTTL?: number) : Promise<any>{
         let client = request.payload.client;
@@ -39,11 +39,11 @@ export default class RefreshTokenGrant extends AbstractGrant implements GrantI{
                                 client,
                                 { id: oldRefreshToken.user_id},
                                 accessTokenTTL
-                            ).then(accessToken => {
+                            ).then((accessToken: AccessTokenI) => {
                                 resolve(accessToken);
-                            }).catch(error => reject(error));
+                            }).catch((error: Error) => reject(error));
                         }).catch(error => reject(error))
-                }).catch(error => reject(error))
+                }).catch((error: Error) => reject(error))
         })
     }
 
@@ -52,7 +52,7 @@ export default class RefreshTokenGrant extends AbstractGrant implements GrantI{
      * Checks whether refresh token has expired or is revoked
      *
      * @param {string} refreshToken
-     * @returns {Bluebird<any>}
+     * @returns {Promise<any>}
      */
     private validateRefreshToken(refreshToken: string) : Promise<any> {
 

@@ -1,5 +1,4 @@
 import AuthenticatedRequestI from './requests/AuthenticatedRequestI'
-import * as Promise from 'bluebird';
 
 /**
  * This is the resource interface
