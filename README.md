@@ -19,7 +19,7 @@ Only Password and Refresh Token grant types are available now. More grant types 
 
 To install  library, simply run
 ```
-$ npm install omnile-oauth2
+$ npm install omnile-oauth2server
 ```
 
 ## Basic Usage

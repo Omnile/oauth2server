@@ -38,7 +38,7 @@ export default class PasswordGrant extends AbstractGrant implements GrantI{
                               }).catch((error: Error) => reject(error));
                           }).catch((error: Error) => reject(error))
                 }).catch((error: Error) => reject(error))
-        })
+        });
     }
 
 }
