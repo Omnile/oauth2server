@@ -90,28 +90,29 @@ $ npm test
 ```
 
 ## Contributing
-
-Thank you for considering contributing to oauth2server. The contribution guide can be found in the [Contribution File](https://github.com/omnile/oauth2server/blob/master/CONTRIBUTING.md)
-
+To contribute, please send us an email at technical@omnile.com.
+<!--Thank you for considering contributing to oauth2server. The contribution guide can be found in the [Contribution File](https://github.com/omnile/oauth2server/blob/master/CONTRIBUTING.md)
+-->
 ## Security
 
 If you discover any security related issues, please email
-instead of using the issue tracker.
+instead of using the issue tracker.  
+Send emails to <technical@omnile.com>
 
 ## Credits
 
 - [All contributors](https://github.com/omnile/oauth2server/graphs/contributors)
 
 ## Licence
-* [Licence: MIT](https://github.com/omnile/oauth2server/licence)
+* [Licence: MIT](https://opensource.org/licenses/MIT)
 
 
-## Reference
+<!--## Reference
 - [Official Page](https://www.omnile.com/oauth2server)
 - [Official Repo: Github](https://www.github.com/omnile/oauth2server)
 - [LICENCE: MIT](https://github.com/omnile/oauth2server/blob/licence)
 - [CHANGELOG](https://github.com/omnile/oauth2servers/blob/master/CHANGELOG.md)
-
+-->
 
 ## How can I thank you?
 
