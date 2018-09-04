@@ -1,13 +1,5 @@
 
-Links And Logo will come here
-
----
-
 # OAuth2Server
-Description
-
-Badges and Links will come here
-
 ```md
 ___________           .__      ________                 .__.__          
 \__    ___/___   ____ |  |__   \_____  \   _____   ____ |__|  |   ____  
@@ -15,12 +7,13 @@ ___________           .__      ________                 .__.__
   |    |\  ___/\  \___|   Y  \ /    |    \  Y Y  \   |  \  |  |_\  ___/
   |____| \___  >\___  >___|  / \_______  /__|_|  /___|  /__|____/\___  >
              \/     \/     \/          \/      \/     \/             \/  
-             The true nile flowing with technology.
+             Techflow like the Nile River®.
 ```
 
 ## About this package?
 
-Straight forward Summary about this package.
+OAuth2 Server for NodeJs. 
+Only Password and Refresh Token grant types are available now. More grant types will come soon.
 
 ## Installing this package
 
@@ -31,22 +24,63 @@ $ npm install omnile-oauth2
 
 ## Basic Usage
 
-Simple description on how to use this package
+### Authorization Server
+Generating an access token:
 
-#### Sample Code 1
+The repositories must implement their corresponding interfaces.
 
-```js
-var OAuth2Server = require('omnile-oauth2');
+```typescript
+const AuthorizationServer = require('omnile-oauth2');
+import { ServerOptionsI, AuthPayloadI, ClientEntityI, UserEntityI } from 'omnile-oauth2';
+ 
+// Server options
+const options: ServerOptionsI = {
+    clientRepository: clients,
+    userRepository: users,
+    tokenRepository: tokens,
+    privateKey: pathToPrivateKey,
+    tokenExpiryMins: 30,
+    encryptionKey: 'some-strong-encryption-key'
+};
+ 
+// Create the authorization server
+const authServer = new AuthorizationServer(options);
+ 
 
-// Some implementation example
+// A given request payload
+const payload: AuthPayloadI = {
+    client: ClientEntityI,
+    grant_type: 'password', // For password grant type
+    user: UserEntityI
+};
+
+ 
+try{
+    const accessToken = await authServer.getAccessToken(payload);
+}catch(e){
+    console.error(e);
+}
 ```
 
-# Documentation
+### Resource Server
+#### Authenticate access token
+```typescript
 
-You can find a detailed summary of all classes and methods on the [official page](https://www.omnile.com/oauth2server). The changelog is available in the CHANGELOG file.
+import { ResourceServer, AuthenticatedRequestI } from 'omnile-oauth2';
+ 
+const resourceServer = new ResourceServer();
+ 
+const request: AuthenticatedRequestI = {
+    access_token: 'access-token-generated'   
+};
+ 
+try{
+    const decoded = await resourceServer.validateAuthenticatedRequest(request);
+}catch (e){
+    console.error(e);
+}
 
-You can find a detailed summary of all classes and methods in the repo's wiki or the official page. The changelog is available in the CHANGELOG file.
-
+```
 ## Tests
 
 Simply run the test as follows

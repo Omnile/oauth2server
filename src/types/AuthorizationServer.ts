@@ -16,6 +16,11 @@ import UserRepositoryI from "./repositories/UserRepositoryI";
 import RefreshTokenGrant from "./grants/RefreshTokenGrant";
 import Encryptor from "./Encryptor";
 
+/**
+ * Authorization server for generation of access tokens
+ *
+ * @author Bright Antwi Boasiako <bright@omnile.com>
+ */
 export default class AuthorizationServer implements AuthorizationServerI{
 
     private accessTokenResponse: TokenResponseI = null;
@@ -95,6 +100,11 @@ export default class AuthorizationServer implements AuthorizationServerI{
         }))
     }
 
+    /**
+     * Enables a grant
+     * @param {GrantI} grant
+     * @param {number} accessTokenTTL
+     */
     enableGrant(grant: GrantI, accessTokenTTL: number): void {
         grant.setAccessTokenTTL(accessTokenTTL);
         grant.setEncryptor(this.encryptor);
@@ -137,40 +147,74 @@ export default class AuthorizationServer implements AuthorizationServerI{
     }
 
 
+    /**
+     * Sets the private key
+     * @param {string} keyPath
+     * @returns {AuthorizationServerI}
+     */
     public setPrivateKey(keyPath: string) : AuthorizationServerI{
         this.privateKey = new CryptKey(keyPath);
         return this;
     }
 
 
+    /**
+     * Sets the token repository
+     * @param {TokenRepositoryI} tokens
+     * @returns {AuthorizationServerI}
+     */
     public setTokenRepository(tokens: TokenRepositoryI) : AuthorizationServerI {
         this.tokenRepository = tokens;
         return this;
     }
 
+    /**
+     * Sets the client repository
+     * @param {ClientRepositoryI} clients
+     * @returns {AuthorizationServerI}
+     */
     public setClientRepository(clients: ClientRepositoryI) : AuthorizationServerI {
         this.clientRepository = clients;
         return this;
     }
 
 
+    /**
+     * Sets the user repository
+     * @param {UserRepositoryI} users
+     * @returns {AuthorizationServerI}
+     */
     public setUserRepository(users: UserRepositoryI) : AuthorizationServerI{
         this.userRepository = users;
         return this;
     }
 
+    /**
+     * Sets the token expiration in minutes
+     * @param {number} numMins
+     * @returns {AuthorizationServerI}
+     */
     public setTokenExpiry(numMins: number) : AuthorizationServerI{
         this.accessTokenTTL = numMins;
         return this;
     }
 
 
+    /**
+     * Sets the encryption key
+     * @param {string} key
+     * @returns {AuthorizationServerI}
+     */
     public setEncryptionKey(key: string) : AuthorizationServerI{
         this.encryptor.setKey(key);
         return this;
     }
 
 
+    /**
+     * Binds repositories to a grant
+     * @param {GrantI} grant
+     */
     private bindRepositoriesToGrant(grant: GrantI) : void {
         grant.setClientRepository(this.clientRepository);
         grant.setTokenRepository(this.tokenRepository);
@@ -178,6 +222,9 @@ export default class AuthorizationServer implements AuthorizationServerI{
     }
 
 
+    /**
+     * Enables the default grants
+     */
     private enableDefaultGrants(){
         // Password Grant
         this.enableGrant(new PasswordGrant(), this.accessTokenTTL);
