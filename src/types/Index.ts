@@ -28,6 +28,7 @@ export {default as UserIdentifierEntityI} from './entities/UserIdentifierEntityI
 export {default as AccessTokenRequestI} from './requests/AccessTokenRequestI';
 export {default as AuthenticatedRequestI} from './requests/AuthenticatedRequestI';
 export { default as AuthPayloadI } from './AuthPayloadI';
+export { default as ServerOptionsI } from './ServerOptionsI';
 
 // Responses
 export {default as TokenResponseI} from './responses/TokenResponseI';

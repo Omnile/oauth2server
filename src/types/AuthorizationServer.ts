@@ -7,7 +7,7 @@ import TokenResponseEntityI from "./responses/TokenResponseEntityI";
 import BearerTokenResponse from "./responses/BearerTokenResponse";
 import {default as CryptKey, CryptKeyI} from "./CryptKey";
 import AccessTokenRequestI from "./requests/AccessTokenRequestI";
-import { ServerOptionsI } from "./ServerOptionsI";
+import ServerOptionsI  from "./ServerOptionsI";
 import ClientRepositoryI from "./repositories/ClientRepositoryI";
 import TokenRepositoryI from "./repositories/TokenRepositoryI";
 import PasswordGrant from "./grants/PasswordGrant";

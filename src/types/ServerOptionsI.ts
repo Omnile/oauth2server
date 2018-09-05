@@ -2,7 +2,7 @@ import ClientRepositoryI from "./repositories/ClientRepositoryI";
 import TokenRepositoryI from "./repositories/TokenRepositoryI";
 import UserRepositoryI from "./repositories/UserRepositoryI";
 
-export interface ServerOptionsI{
+export default interface ServerOptionsI{
     clientRepository?: ClientRepositoryI,
     tokenRepository?: TokenRepositoryI,
     userRepository?: UserRepositoryI,
