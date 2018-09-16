@@ -1,6 +1,6 @@
 {
   "name": "omnile-oauth2server",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "An OAuth 2 implementation from the Omnile Team.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
