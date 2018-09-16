@@ -12,7 +12,7 @@ export class ResourceServer implements ResourceServerI{
      * This is a request with an access token
      *
      * @param {AuthenticatedRequestI} request
-     * @returns {Bluebird<any>}
+     * @returns {Promise<any>}
      */
     validateAuthenticatedRequest(request: AuthenticatedRequestI): Promise<any> {
         return new Promise((resolve, reject) => {

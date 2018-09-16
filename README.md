@@ -24,21 +24,58 @@ $ npm install omnile-oauth2server
 
 ## Basic Usage
 
-### Authorization Server
-Generating an access token:
+### Generating Access Tokens (TypeScript Example)
+Generating an access token using this package is in two simple steps.
+First, you create an authorization server and then you provide an auth payload to the
+server to get the access token.
 
-The repositories must implement their corresponding interfaces.
+#### Server Setup
+This package makes no assumption about how your data is stored or what database you use. It achieves this 
+by providing a set of interfaces to be implemented using the repository design pattern.
+ 
+##### Repositories
+There are 3 repositories to be implemented for the OAuth process. These are:
+1. [ClientRepositoryI](https://github.com/Omnile/oauth2server/blob/master/src/types/repositories/ClientRepositoryI.ts)
+2. [TokenRepositoryI](https://github.com/Omnile/oauth2server/blob/master/src/types/repositories/TokenRepositoryI.ts) 
+3. [UserRepositoryI](https://github.com/Omnile/oauth2server/blob/master/src/types/repositories/UserRepositoryI.ts)
+ 
+```typescript
+const clients: ClientRepositoryI = new ClientRepository();
+const tokens: TokenRepositoryI = new TokenRepository();
+const users: UserRepositoryI = new UserRepository();
+```
+ 
+##### Server Options
+Once the repositories are setup, the next thing is to make a set of options for the Authorization Server.
+This should be an implementation of [ServerOptionsI](https://github.com/Omnile/oauth2server/blob/master/src/types/ServerOptionsI.ts)
+  
+```typescript
+const options: ServerOptionsI = {
+    clientRepository: clients,
+    userRepository: users,
+    tokenRepository: tokens,
+    privateKey: 'path/to/private-key.key',
+    tokenExpiryMins: 30,
+    encryptionKey: 'some-strong-encryption-key'
+};
+```
+  
+Now we're ready to create the authorization server. We'll put all the steps together to make it clearer.
 
 ```typescript
-const AuthorizationServer = require('omnile-oauth2');
-import { ServerOptionsI, AuthPayloadI, ClientEntityI, UserEntityI } from 'omnile-oauth2';
- 
+import AuthorizationServer from 'omnile-oauth2server';
+
+// Server Setup
+const clients: ClientRepositoryI = new ClientRepository();
+const tokens: TokenRepositoryI = new TokenRepository();
+const users: UserRepositoryI = new UserRepository();
+
 // Server options
 const options: ServerOptionsI = {
     clientRepository: clients,
     userRepository: users,
     tokenRepository: tokens,
-    privateKey: pathToPrivateKey,
+    privateKey: 'path/to/private-key.key',
     tokenExpiryMins: 30,
     encryptionKey: 'some-strong-encryption-key'
 };
@@ -47,6 +84,21 @@ const options: ServerOptionsI = {
 const authServer = new AuthorizationServer(options);
  
 
+```
+
+#### Generating an Access Token
+Once we have the auth server, we can now start issuing access tokens.
+ 
+The payload for requesting access tokens from the server should implement the
+[AuthPayloadI](https://github.com/Omnile/oauth2server/blob/master/src/types/AuthPayloadI.ts) interface.
+
+This is a json object that specifies the grant type, client ([ClientEntityI](https://github.com/Omnile/oauth2server/blob/master/src/types/entities/ClientEntityI.ts))
+and a user ([UserEntityI](https://github.com/Omnile/oauth2server/blob/master/src/types/entities/UserEntityI.ts)).
+
+The payload would most likely be received through the request (req.body) object if you're using a framework
+like [express](https://expressjs.com). 
+
+```typescript
 // A given request payload
 const payload: AuthPayloadI = {
     client: ClientEntityI,
@@ -62,13 +114,22 @@ try{
 }
 ```
 
+The access token returned is an instance of [TokenResponseEntityI](https://github.com/Omnile/oauth2server/blob/master/src/types/responses/TokenResponseEntityI.ts).
+
 ### Resource Server
+Once you have successfully generated access tokens to your application clients, the next phase is
+to authenticate requests that present tokens. This is usually requests to protected resources.
+ 
 #### Authenticate access token
+A resource server is used to validate access tokens.
+The code snippet below illustrates how a request with an access token is validated.
+This could be a middleware (if you're using a framework such as express).
 ```typescript
 
 import { ResourceServer, AuthenticatedRequestI } from 'omnile-oauth2';
  
 const resourceServer = new ResourceServer();
+resourceServer.setPublicKey('path/to/public-key.key');
  
 const request: AuthenticatedRequestI = {
     access_token: 'access-token-generated'   
@@ -79,8 +140,9 @@ try{
 }catch (e){
     console.error(e);
 }
-
 ```
+The decoded data is an implementation of [JwtTokenI](https://github.com/Omnile/oauth2server/blob/master/src/types/JwtTokenI.ts).
+ 
 ## Tests
 
 Simply run the test as follows
@@ -100,7 +162,7 @@ instead of using the issue tracker.
 Send emails to <technical@omnile.com>
 
 ## Credits
-
+- [Laravel Passport](https://github.com/laravel/passport)
 - [All contributors](https://github.com/omnile/oauth2server/graphs/contributors)
 
 ## Licence
