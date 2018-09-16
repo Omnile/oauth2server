@@ -65,7 +65,7 @@ Now we're ready to create the authorization server. We'll put all the steps toge
 ```typescript
 import AuthorizationServer from 'omnile-oauth2server';
 
-// Server Setup
+// Repository Setup
 const clients: ClientRepositoryI = new ClientRepository();
 const tokens: TokenRepositoryI = new TokenRepository();
 const users: UserRepositoryI = new UserRepository();
@@ -128,9 +128,11 @@ This could be a middleware (if you're using a framework such as express).
 
 import { ResourceServer, AuthenticatedRequestI } from 'omnile-oauth2';
  
+// Setup resource server
 const resourceServer = new ResourceServer();
 resourceServer.setPublicKey('path/to/public-key.key');
  
+// Auth request payload (For instance req.body in express)
 const request: AuthenticatedRequestI = {
     access_token: 'access-token-generated'   
 };
