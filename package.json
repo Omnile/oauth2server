@@ -2,8 +2,8 @@
   "name": "omnile-oauth2server",
   "version": "1.0.4",
   "description": "An OAuth 2 implementation from the Omnile Team.",
-  "main": "./dist/Index.js",
-  "types": "./dist/Index.d.ts",
+  "main": "dist/Index.js",
+  "types": "dist/Index.d.ts",
   "scripts": {
     "test": "mocha --compilers ts:ts-node/register 'test/**.spec.ts'",
     "watch-test": "mocha -w --compilers ts:ts-node/register 'test/*.spec.ts'",
